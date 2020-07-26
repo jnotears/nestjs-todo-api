@@ -11,22 +11,17 @@ export class AppController {
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   async login(@Request() req) {
-    console.log('login..');
     return this.authService.login(req.user);
   }
 
   @Post('auth/register')
   async register(@Request() req){
-    console.log('registing....');
-    console.log('req content ',req);
-    console.log('req body: ',req.body);
     return this.authService.register(req.body);
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('profile')
   getProfile(@Request() req) {
-    console.log(req);
     return req.user;
   }
 }
