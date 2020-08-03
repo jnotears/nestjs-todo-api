@@ -40,4 +40,14 @@ export class AuthService {
             username: user.username
         };
     }
+
+    githubLogin(req){
+        if(!req.user){
+            return 'no user'
+        }
+        return {
+            message: 'user info',
+            user: req.user
+        }
+    }
 }
